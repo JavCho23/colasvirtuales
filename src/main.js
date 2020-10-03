@@ -1,12 +1,23 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-
-Vue.config.productionTip = false
-
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import firebase from "firebase";
+Vue.config.productionTip = false;
+const firebaseConfig = {
+  apiKey: "AIzaSyCMkR7Pb1-LcC61yKIke90Kd8kZvm0Wnwc",
+  authDomain: "colasvirtuales.firebaseapp.com",
+  databaseURL: "https://colasvirtuales.firebaseio.com",
+  projectId: "colasvirtuales",
+  storageBucket: "colasvirtuales.appspot.com",
+  messagingSenderId: "519796774430",
+  appId: "1:519796774430:web:46d5a02a52accd7cc1000f",
+  measurementId: "G-M65N2EL1QD",
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");
