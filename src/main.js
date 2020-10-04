@@ -3,8 +3,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import firebase from "firebase";
-import vuetify from './plugins/vuetify';
-import '@babel/polyfill'
+import vuetify from "./plugins/vuetify";
+import "@mdi/font/css/materialdesignicons.css";
+
+import "@babel/polyfill";
+import "material-design-icons-iconfont/dist/material-design-icons.css";
+
 Vue.config.productionTip = false;
 const firebaseConfig = {
   apiKey: "AIzaSyCMkR7Pb1-LcC61yKIke90Kd8kZvm0Wnwc",
@@ -22,5 +26,5 @@ new Vue({
   router,
   store,
   vuetify,
-  render: (h) => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
