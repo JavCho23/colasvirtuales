@@ -1,9 +1,23 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-     
+      <v-toolbar-title> {{ title }} </v-toolbar-title>
+
       <v-spacer></v-spacer>
-      <h2>Banco tal</h2>
+      <v-btn class="text-capitalize" text rounded :icon="isMobile" to="/">
+        <v-icon :left="!isMobile"> mdi-home</v-icon>
+        <span v-if="!isMobile"> Inicio </span>
+      </v-btn>
+      <v-btn
+        class="text-capitalize"
+        text
+        rounded
+        :icon="isMobile"
+        to="/tickets"
+      >
+        <v-icon :left="!isMobile">mdi-ticket-account</v-icon>
+        <span v-if="!isMobile"> Ticket </span>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
@@ -21,5 +35,24 @@ export default {
   data: () => ({
     //
   }),
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.smAndDown;
+    },
+    title() {
+      let title;
+
+      switch (this.$route.path) {
+        case "/":
+          title = "Colas";
+          break;
+        case "/tickets":
+          title = "Sacar un tickets";
+          break;
+      }
+
+      return title;
+    },
+  },
 };
 </script>
