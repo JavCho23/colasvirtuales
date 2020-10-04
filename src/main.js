@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import firebase from "firebase";
+import vuetify from './plugins/vuetify';
+import '@babel/polyfill'
 Vue.config.productionTip = false;
 const firebaseConfig = {
   apiKey: "AIzaSyCMkR7Pb1-LcC61yKIke90Kd8kZvm0Wnwc",
@@ -19,5 +21,6 @@ firebase.initializeApp(firebaseConfig);
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  vuetify,
+  render: (h) => h(App)
 }).$mount("#app");
