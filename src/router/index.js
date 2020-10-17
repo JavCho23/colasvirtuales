@@ -10,6 +10,7 @@ const routes = [
     name: 'Home',
     component: Home
   },
+<<<<<<< HEAD
   {
     path: '/about',
     name: 'About',
@@ -23,6 +24,8 @@ const routes = [
     name: 'SignIn',
     component: () => import('../views/SignIn.vue')
   }
+=======
+>>>>>>> 05e13673b1bff96ceb84a2e35e954d8356705d36
 ]
 
 const router = new VueRouter({

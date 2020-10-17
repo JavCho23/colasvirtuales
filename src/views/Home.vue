@@ -1,14 +1,11 @@
 <template>
   <v-row class="justify-center">
-    <PersonList title="Clientes" :persons="clients" />
-    <PersonList title="Visitantes" :persons="guests" />
-    <PersonList title="Preferencial" :persons="preference" />
+    <PersonList v-for="entity in entities"  :key="entity.name" :title="entity.title" :entity="entity.name" />
+    
   </v-row>
 </template>
 
 <script>
-import firebase from "firebase/app";
-import "firebase/firestore";
 import PersonList from "@/components/PersonList.vue";
 
 export default {
@@ -18,53 +15,16 @@ export default {
   },
   data() {
     return {
-      clients: [],
-      guests: [],
-      preference: [],
+     entities:[ 
+                {title:"Clientes",name:"clients"},
+                {title:"Visitantes",name:"guests"},
+                {title:"Preferencial",name:"preference"}
+              ]
     };
   },
   methods: {
-    fetchQueues() {
-      firebase
-        .firestore()
-        .collection("clients")
-        .onSnapshot((snap) => {
-          this.clients = [];
-          snap.forEach((doc) => {
-            this.clients.push({
-              id: doc.id,
-              ...doc.data(),
-            });
-          });
-        });
-      firebase
-        .firestore()
-        .collection("guests")
-        .onSnapshot((snap) => {
-          this.guests = [];
-          snap.forEach((doc) => {
-            this.guests.push({
-              id: doc.id,
-              ...doc.data(),
-            });
-          });
-        });
-      firebase
-        .firestore()
-        .collection("preference")
-        .onSnapshot((snap) => {
-          this.preference = [];
-          snap.forEach((doc) => {
-            this.preference.push({
-              id: doc.id,
-              ...doc.data(),
-            });
-          });
-        });
-    },
-  },
-  created() {
-    this.fetchQueues();
   },
 };
 </script>
+
+
