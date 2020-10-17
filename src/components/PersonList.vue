@@ -6,7 +6,7 @@
       >
     </v-row>
     <v-row>
-      <v-col v-for="person in persons" :key="person.id">
+      <v-col cols="12" v-for="person in persons" :key="person.id">
         <PersonItem :person="person" />
       </v-col>
     </v-row>
@@ -14,10 +14,38 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/firestore";
 import PersonItem from "./PersonItem.vue";
 export default {
   name: "PersonList",
-  props: ["persons", "title"],
+  props: ["entity", "title"],
+  data(){
+    return{
+      persons: []
+    }
+  },
+  methods:{
+    fetchQueues() {
+      firebase
+        .firestore()
+        .collection(this.entity)
+        .onSnapshot((snap) => {
+          this.persons = [];
+          snap.forEach((doc) => {
+            console.log(doc);
+            this.persons.push({
+              id: doc.id,
+              ...doc.data(),
+            });
+          });
+        });
+    }
+  },
+  created(){
+    this.fetchQueues();
+  },
+
   components: { PersonItem },
 };
 </script>
