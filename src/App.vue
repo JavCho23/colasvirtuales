@@ -1,12 +1,12 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
-      <v-toolbar-title> Alexa la malcriada </v-toolbar-title>
+      <v-toolbar-title> {{Título}} </v-toolbar-title>
 
       <v-spacer></v-spacer>
       <v-btn class="text-capitalize" text rounded :icon="isMobile" to="/">
         <v-icon :left="!isMobile"> mdi-home</v-icon>
-        <span v-if="!isMobile"> Pachi me llegas </span>
+        <span v-if="!isMobile"> Inicio </span>
       </v-btn>
       <v-btn
         class="text-capitalize"
