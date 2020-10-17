@@ -6,7 +6,7 @@
       <v-spacer></v-spacer>
       <v-btn class="text-capitalize" text rounded :icon="isMobile" to="/">
         <v-icon :left="!isMobile"> mdi-home</v-icon>
-        <span v-if="!isMobile"> Inicio </span>
+        <span v-if="!isMobile"> Pachi me llegas </span>
       </v-btn>
       <v-btn
         class="text-capitalize"
