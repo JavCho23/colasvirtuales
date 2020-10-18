@@ -46,7 +46,7 @@ export default {
         case "/":
           title = "Colas";
           break;
-        case "/tickets":
+        case "/ticket":
           title = "Sacar un ticket";
           break;
       }
