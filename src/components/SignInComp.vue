@@ -1,10 +1,8 @@
 <template>
   <v-card :class="isMobile ? 'pa-6' : 'pa-4'" :flat="isMobile ? true : false">
-    <v-card-title class="d-flex justify-center">
-      Iniciar sesion
-    </v-card-title>
+    <v-card-title class="text d-flex justify-center" v-text="title" />
     <v-text-field
-      color="linear-gradient(-45deg, #015a90, #ffac0e)"
+      color="#015a90"
       label="Usuario"
       placeholder="tugatita123"
     ></v-text-field>
@@ -28,6 +26,7 @@ export default {
   data() {
     return {
       show: false,
+      title: "Iniciar Sesión",
     };
   },
   computed: {
@@ -37,3 +36,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.text {
+  color: #015a90;
+}
+</style>
