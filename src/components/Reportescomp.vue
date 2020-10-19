@@ -77,10 +77,10 @@
           </v-col>
         </v-row>
       </template>
-
     </v-data-iterator>
   </v-container>
 </template>
+
 <script>
   export default {
     data: () => ({
@@ -128,5 +128,5 @@
         },
       ],
     }),
-  }
+  };
 </script>
