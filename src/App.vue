@@ -13,7 +13,7 @@
         text
         rounded
         :icon="isMobile"
-        to="/tickets"
+        to="/ticket"
       >
         <v-icon :left="!isMobile">mdi-ticket-account</v-icon>
         <span v-if="!isMobile"> Ticket </span>
