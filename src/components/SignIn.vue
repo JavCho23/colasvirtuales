@@ -1,5 +1,5 @@
 <template>
-  <v-card :class="isMobile ? 'pa-6' : 'pa-4'" :flat="isMobile ? true : false">
+  <v-card :class="isMobile ? 'pa-6' : 'pa-4'" flat>
     <v-card-title class="text d-flex justify-center" v-text="title" />
     <v-card-text class="px-0 pb-6 ">
       <v-text-field solo color="#015a90" label="Usuario"></v-text-field>
