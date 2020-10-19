@@ -13,7 +13,7 @@
         text
         rounded
         :icon="isMobile"
-        to="/tickets"
+        to="/ticket"
       >
         <v-icon :left="!isMobile">mdi-ticket-account</v-icon>
         <span v-if="!isMobile"> Ticket </span>
@@ -48,7 +48,7 @@ export default {
         case "/":
           title = "Colas";
           break;
-        case "/tickets":
+        case "/ticket":
           title = "Sacar un ticket";
           break;
       }
