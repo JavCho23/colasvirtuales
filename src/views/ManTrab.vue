@@ -1,7 +1,7 @@
 <template>
   <div class="fondo d-flex align-center">
     <v-row no-gutters class="d-flex justify-center">
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="8">
         <Mantrabcomp />
       </v-col>
     </v-row>

@@ -29,11 +29,15 @@ const routes = [
     name: "Ticket",
     component: () => import("../views/Ticket.vue"),
   },
-  ,
   {
     path: "/Mantrab",
     name: "Mantrab",
     component: () => import("../views/ManTrab.vue"),
+  },
+  {
+    path: "/Reportes",
+    name: "Rportes",
+    component: () => import("../views/Reportes.vue"),
   },
 ];
 
