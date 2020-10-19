@@ -1,15 +1,11 @@
 <template>
-  <v-col cols="11" md="4">
-    <v-row>
-      <v-col
-        ><h3>{{ title }}</h3></v-col
-      >
-    </v-row>
-    <v-row>
-      <v-col cols="12" v-for="person in persons" :key="person.id">
+  <v-col :cols="isMobile ? 16 : 4">
+    <v-card class="my-2" flat>
+      <v-card-title v-text="title" />
+      <v-card-text v-for="person in persons" :key="person.id">
         <PersonItem :person="person" />
-      </v-col>
-    </v-row>
+      </v-card-text>
+    </v-card>
   </v-col>
 </template>
 
@@ -20,12 +16,12 @@ import PersonItem from "./PersonItem.vue";
 export default {
   name: "PersonList",
   props: ["entity", "title"],
-  data(){
-    return{
-      persons: []
-    }
+  data() {
+    return {
+      persons: [],
+    };
   },
-  methods:{
+  methods: {
     fetchQueues() {
       firebase
         .firestore()
@@ -40,9 +36,14 @@ export default {
             });
           });
         });
-    }
+    },
   },
-  created(){
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.smAndDown;
+    },
+  },
+  created() {
     this.fetchQueues();
   },
 
