@@ -8,13 +8,7 @@
         <v-icon :left="!isMobile"> mdi-home</v-icon>
         <span v-if="!isMobile"> Inicio </span>
       </v-btn>
-      <v-btn
-        class="text-capitalize"
-        text
-        rounded
-        :icon="isMobile"
-        to="/ticket"
-      >
+      <v-btn class="text-capitalize" text rounded :icon="isMobile" to="/ticket">
         <v-icon :left="!isMobile">mdi-ticket-account</v-icon>
         <span v-if="!isMobile"> Ticket </span>
       </v-btn>
