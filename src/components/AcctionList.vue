@@ -10,7 +10,7 @@
         <v-btn
           :class="isMobile ? 'my-3' : 'mt-3'"
           :width="isMobile ? '100%' : ''"
-          v-text="'Confirmar atneción'"
+          v-text="'Confirmar atención'"
           color="primary"
         />
         <v-btn

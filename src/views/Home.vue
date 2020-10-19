@@ -3,12 +3,7 @@
     <v-col :cols="isMobile ? '12' : '10'">
       <v-row class="d-flex justify-end">
         <v-col :cols="isMobile ? '12' : '3'">
-          <v-select
-            :items="items"
-            label="Ventanilla"
-            hide-details
-            class="px-3"
-          />
+          <v-select :items="items" label="Cola" hide-details class="px-3" />
         </v-col>
         <AcctionList />
       </v-row>
@@ -47,7 +42,7 @@ export default {
         { title: "Visitantes", name: "guests" },
         { title: "Preferencial", name: "preference" },
       ],
-      items: ["Ventanilla 1", "Ventanilla 2"],
+      items: ["Cola 1", "Cola 2"],
     };
   },
   methods: {},
