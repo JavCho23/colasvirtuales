@@ -1,73 +1,68 @@
 <template>
-  <v-form
-    :class="isMobile ? 'pa-6' : 'pa-4'"
-    :flat="isMobile ? true : false"
-    ref="form"
-    v-model="valid"
-    lazy-validation
-  >
+  <v-card flat class="pa-2">
     <v-card-title class="text d-flex justify-center" v-text="title" />
-    <v-text-field
-      color="#015a90"
-      v-model="name"
-      :rules="nameRules"
-      label="Name"
-      required
-    ></v-text-field>
+    <v-card-text class="px-0 pb-6">
+      <v-text-field
+      solo
+        v-model="name"
+        label="Name"
+        color="#015a90"
+        :rules="[rules.required]"
+      ></v-text-field>
 
-    <v-text-field
-      color="#015a90"
-      v-model="email"
-      :rules="emailRules"
-      label="E-mail"
-      required
-    ></v-text-field>
+      <v-text-field
+      solo
+        color="#015a90"
+        v-model="email"
+        :rules="[rules.required, rules.email]"
+        label="E-mail"
+      ></v-text-field>
 
-    <v-text-field
-      color="#015a90"
-      v-model="number"
-      :counter="9"
-      :rules="numberRules"
-      label="Cell phone"
-      required
-    ></v-text-field>
+      <v-text-field
+      solo
+        v-model="number"
+        label="Cell phone"
+        color="#015a90"
+        :rules="[rules.required, rules.counter]"
+        counter
+        maxlength="9"
+      ></v-text-field>
+    </v-card-text>
 
-    <v-checkbox
-      color="#015a90"
-      v-model="checkbox"
-      :rules="checkRules"
-      label="Do you agree?"
-      required
-    ></v-checkbox>
-
-    <v-btn :disabled="!valid" class="mr-6" @click="validate" color="#0060b0">
-      Validar
-    </v-btn>
-
-    <v-btn class="mr-6" @click="reset" color="#ffb612">
-      Limpiar
-    </v-btn>
-  </v-form>
+    <v-card-actions class="pa-0">
+      <v-btn color="#0060b0" width="48%" dark>
+        Confirmar
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn color="#ffb612" width="48%" dark>
+        Cancelar
+      </v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      show: false,
       title: "Sacar Ticket",
-      valid: true,
+
+      name: "",
       email: "",
-      emailRules: [
-        (v) => !!v || "E-mail es requerido",
-        (v) => /.+@.+\..+/.test(v) || "E-mail no es válido",
-      ],
       number: "",
-      numberRules: [
-        (v) => !!v || "El número es requerido",
-        (v) => (v && v.length == 9) || "Número incorrecto",
-      ],
+
+      show: false,
       checkbox: false,
+      valid: true,
+
+      rules: {
+        required: (value) => !!value || "Required.",
+        counter: (value) => value.length <= 9 || "9 números",
+        email: (value) => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return pattern.test(value) || "Invalid e-mail.";
+        },
+      },
     };
   },
 
@@ -77,14 +72,7 @@ export default {
     },
   },
 
-  methods: {
-    validate() {
-      this.$refs.form.validate();
-    },
-    reset() {
-      this.$refs.form.reset();
-    },
-  },
+  methods: {},
 };
 </script>
 
