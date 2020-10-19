@@ -3,27 +3,24 @@
     <v-card-title class="text d-flex justify-center" v-text="title" />
     <v-card-text class="px-0 pb-6">
       <v-text-field
-      solo
+        solo
         v-model="name"
-        label="Name"
-        color="#015a90"
         :rules="[rules.required]"
+        label="Nombre"
       ></v-text-field>
 
       <v-text-field
-      solo
-        color="#015a90"
+        solo
         v-model="email"
         :rules="[rules.required, rules.email]"
-        label="E-mail"
+        label="Correo electrónico"
       ></v-text-field>
 
       <v-text-field
-      solo
+        solo
         v-model="number"
-        label="Cell phone"
-        color="#015a90"
         :rules="[rules.required, rules.counter]"
+        label="N° de telefónico"
         counter
         maxlength="9"
       ></v-text-field>
@@ -34,7 +31,7 @@
         Confirmar
       </v-btn>
       <v-spacer></v-spacer>
-      <v-btn color="#ffb612" width="48%" dark>
+      <v-btn color="#ffb612" width="48%" dark @click="cancelar()">
         Cancelar
       </v-btn>
     </v-card-actions>
@@ -56,7 +53,7 @@ export default {
       valid: true,
 
       rules: {
-        required: (value) => !!value || "Required.",
+        required: (value) => !!value || "Obligatorio",
         counter: (value) => value.length <= 9 || "9 números",
         email: (value) => {
           const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -72,7 +69,14 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    cancelar() {
+      this.name = "";
+      this.email = "";
+      this.number = "";
+      this.rules.required = false;
+    },
+  },
 };
 </script>
 
