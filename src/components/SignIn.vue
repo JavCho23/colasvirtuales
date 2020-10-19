@@ -1,21 +1,19 @@
 <template>
   <v-card :class="isMobile ? 'pa-6' : 'pa-4'" :flat="isMobile ? true : false">
     <v-card-title class="text d-flex justify-center" v-text="title" />
-    <v-text-field
-      color="#015a90"
-      label="Usuario"
-      placeholder="tugatita123"
-    ></v-text-field>
-    <v-text-field
-      color="#015a90"
-      label="Contraseña"
-      placeholder="********"
-      :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
-      :type="show ? 'text' : 'password'"
-      @click:append="show = !show"
-    ></v-text-field>
+    <v-card-text class="px-0 pb-6 ">
+      <v-text-field solo color="#015a90" label="Usuario"></v-text-field>
+      <v-text-field
+        solo
+        color="#015a90"
+        label="Contraseña"
+        :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show ? 'text' : 'password'"
+        @click:append="show = !show"
+      ></v-text-field>
+    </v-card-text>
     <v-card-actions class="d-flex justify-center pa-0">
-      <v-btn color="#ffac0e" width="100%">
+      <v-btn color="#ffac0e" width="100%" dark>
         Iniciar
       </v-btn>
     </v-card-actions>

@@ -2,18 +2,18 @@
   <div class="fondo d-flex align-center">
     <v-row no-gutters class="d-flex justify-center">
       <v-col cols="12" md="4">
-        <signInComp />
+        <signIn />
       </v-col>
     </v-row>
   </div>
 </template>
 <script>
-import signInComp from "@/components/SignInComp.vue";
+import signIn from "@/components/SignIn.vue";
 export default {
   name: "SignIn",
 
   components: {
-    signInComp,
+    signIn,
   },
 
   data: () => ({
