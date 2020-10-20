@@ -1,6 +1,18 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
+        <v-badge
+          bordered
+          bottom
+          color="deep-purple accent-4"
+          dot
+          offset-x="10"
+          offset-y="10"
+        >
+          <v-avatar size="40">
+            <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
+          </v-avatar>
+        </v-badge>
         <v-toolbar-title> {{ title }} </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn class="text-capitalize" text rounded :icon="isMobile" to="/">

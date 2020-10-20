@@ -9,22 +9,23 @@
 </template>
 
 <script>
-import regTicket from "@/components/RegTicket.vue";
-export default {
-  name: "Ticket",
+  import regTicket from "@/components/RegTicket.vue";
+  export default {
+    name: "Ticket",
 
-  components: {
-    regTicket,
-  },
+    components: {
+      regTicket,
+    },
 
-  data: () => ({
-    //
-  }),
-};
+    data: () => ({
+      //
+    }),
+  };
 </script>
+
 <style scoped>
-.fondo {
-  width: 100%;
-  height: 100%;
-}
+  .fondo {
+    width: 100%;
+    height: 100%;
+  }
 </style>
